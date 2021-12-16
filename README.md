@@ -7,6 +7,12 @@ This repository is currently under construction and is not representative of the
 ## Run-Down
 If you wish to read a detailed walk-through of this application, please reference
 
+## API
+Here's a short list of custom functions you should be aware of if you decide to hack this repo.
+
+    generateGrid(url, $FILTER);
+    'highestVoted' -- Generates a grid with highest-voted posts in descending order.
+
 ## Frameworks
 *Built with...*
 - Pure JavaScript

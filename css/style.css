@@ -17,7 +17,7 @@
 
 .post {
     display: flex;
-    width: auto;
+    flex-flow: wrap-reverse;
     margin: 0.35em;
     min-height: 15em;
     max-height: 40em;
@@ -25,29 +25,70 @@
     max-width: 40em;
     border-radius: 5px;
     background-color: #ccc;
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow: hidden;
     box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.35);
     -webkit-box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.35);
     -moz-box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.35);
 }
 
+.post-item {
+    display: flex;
+    flex-flow: column-reverse;
+    width: 100%;
+    float: left;
+    padding: 1em 1em 1em 1.5em;
+    color: #fefefe;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.post-flow-right {
+    flex-flow: row-reverse;
+    padding-right: 1em;
+}
+
+.small-post { 
+    min-width: 30em !important;
+    min-height: 30em !important;
+}
+
+.medium-post { 
+    max-width: 20em !important;
+}
+
+.post-title {
+    display: flex;
+    align-self: end;
+    flex-flow: column-reverse;
+    width: fit-content;
+    color: #fefefe;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 1.5rem;
+    font-family: 'Readex Pro', sans-serif;
+    text-transform: capitalize;
+    padding: 1em;
+}
+
 .search {
     display: flex;
+    height: 4em;
     width: 100%;
     float: left;
     font-family: 'Readex Pro', sans-serif;
     font-size: 24px;
     padding: 1.5rem;
+    margin-bottom: 3em;
 }
 
 .search > label {
-    margin: 1em;
+    margin: 0.5em;
     width: auto;
 }
 
 .search > input {
     background-color:#f2f2f2;
-    border-radius: 1em;
+    border-radius: 0.7em;
     margin: 1em;
     padding: 1.5rem;
     width: 100%;
@@ -55,25 +96,12 @@
 
 .search > button {
     background-color: #f2f2f2;
-    border-radius: 1em;
+    border-radius: 0.7em;
     margin: 1em;
     padding: 1.5rem;
 }
 
-#post-author {
-    display: flex;
-    width: auto;
-    float: left;
-    padding: 10px;
-}
-
-#post-title {
-    display: flex;
-    align-self: flex-end;
-    float: left;
-    width: 300px;
-    font-size: 1.5rem;
-    font-family: 'Readex Pro', sans-serif;
-    text-transform: capitalize;
-    padding: 20px;
+.search > button > p {
+    margin-top: -1.2rem;
+    margin-bottom: -20rem;
 }

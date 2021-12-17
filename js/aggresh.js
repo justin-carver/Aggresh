@@ -1,13 +1,11 @@
+
 const init = async () => {
+
     let genCount = 98; // TODO: Find out why resolving an object adds an extra 2 items. Need to subract 2.
     let gradientTargets = ['#E2F4F3', '#B9E7E6', '#6FD4E1']; // Can expand this into an object later to serve themes.
 
     const getSubreddit = async (url) => {
-        return await fetch(url).then(data => {
-            return data.json();
-        }).catch((error, url) => {
-            console.log(`${error}: could not open URL [${url}]`);
-        });
+        return response = await (await fetch(url)).json();
     }
 
     const generateGrid = (subreddit, filter) => {
@@ -26,8 +24,7 @@ const init = async () => {
             return highestVoted;
         }
 
-        console.log(sortHighestVoted());
-
+        // Iterate over every json object element.
         for (let x = 0; x < subreddit['data']['children'].length; x++) {
             let postData = {};
             if (filter === 'highestVoted') {
@@ -52,7 +49,7 @@ const init = async () => {
             }
             // Get comment count to assign correct attributes.
             // We are always sorting by highest voted to determine post size.
-            if (postData['ups'] < (sortHighestVoted()[x][0] * .33)) {
+            if (postData['ups'] < (sortHighestVoted()[x][0] * .25)) {
                 postDOM.className += " small-post";
                 postTitle.style.fontSize = '1rem';
             }
@@ -72,9 +69,23 @@ const init = async () => {
             document.querySelector('.main').appendChild(postDOM);
         }        
     }
+
+    // animejs
+    // anime({
+    //     targets: 'div',
+    //     translateX: 250,
+    //     rotate: '1turn',
+    //     backgroundColor: '#FFF',
+    //     duration: 800
+    //   });
+
+    // Entry --
+    // Remove cors-anywhere before final release
+    generateGrid(await getSubreddit(`https://cors-anywhere.herokuapp.com/https://reddit.com/r/${document.querySelector('.search')[0].value}.json?limit=${genCount}`), 'highestVoted');
     
     // TODO: Onsubmit currently broken, .search only works on page reload.
     document.querySelector('.search').onsubmit = generateGrid(await getSubreddit(`https://cors-anywhere.herokuapp.com/https://reddit.com/r/${document.querySelector('.search')[0].value}.json?limit=${genCount}`), 'highestVoted');
+
 }
 
 init();

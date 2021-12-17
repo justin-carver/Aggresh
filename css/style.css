@@ -5,9 +5,21 @@
 
 */
 
+.logo {
+    display:flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0.2em 0.5em 2em 0.5em;
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+}
+
 .main {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     max-width: 80vw;
     min-height: 40vh;
     /* border: 2px solid #000; -- Debug Border */
@@ -72,13 +84,10 @@
 
 .search {
     display: flex;
-    height: 4em;
     width: 100%;
-    float: left;
     font-family: 'Readex Pro', sans-serif;
     font-size: 24px;
-    padding: 1.5rem;
-    margin-bottom: 3em;
+    margin-bottom: 1.5em;
 }
 
 .search > label {
@@ -89,15 +98,17 @@
 .search > input {
     background-color:#f2f2f2;
     border-radius: 0.7em;
-    margin: 1em;
     padding: 1.5rem;
     width: 100%;
+    height: 2em;
+    margin: 0.2em;
 }
 
 .search > button {
     background-color: #f2f2f2;
+    height:fit-content;
     border-radius: 0.7em;
-    margin: 1em;
+    margin: 0.2em;
     padding: 1.5rem;
 }
 
